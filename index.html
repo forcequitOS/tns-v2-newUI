@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="utils.js"></script>
+    <script type="text/javascript" src="int64.js"></script>
+    <script type="text/javascript" src="stages.js"></script>
+    <script type="text/javascript" src="offsets.js"></script>
+    <script type="text/javascript" src="pwn.js"></script>
+    <script>
+        function log(msg) {};
+        function rejb() {
+            document.getElementById("jbButton").textContent = "re-jailbreaking";
+
+            setTimeout(() => {
+              pwn();
+            }, 100);
+        }
+    </script>
+</head>
+<body>
+
+    <h3>totally-not-spyware v2 (commit-99baa0b)</h3>
+    <p>rejailbreak utility</p>
+    <button id="jbButton" onclick="rejb();">re-jailbreak</button>
+
+    <p>work on iOS 12.0-12.5.x, A7-A10 devices with chimera jailbroken devices.</p>
+    <p>may take upto 20~30 seconds to build jop chain and rejailbreak.</p>
+
+    <p>
+        <a href="https://github.com/wh1te4ever/totally-not-spyware-v2" target="_blank">Source code</a>
+    </p>
+
+    Credits<br>
+    - wh1te4ever (main developer)<br>
+    - alfiecg24 (stable kernel exploit)<br>
+    - felix-pb (kernel exploit)<br>
+    - Samuel Groß (CVE-2020-9802, Webkit Exploit)<br>
+    - CoolStar and all chimera jailbreak developers<br>
+    - JakeBlair420 and all TotallyNotSpyware developers (jop chaining, code-execution idea)<br>
+    <br>
+    
+</body>
+</html>
