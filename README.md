@@ -18,7 +18,7 @@ This is an unofficial modification, so, do be careful, but I can say pretty conf
 
 **Background gradient animates** - The re-jailbreak is not going to work. A likely cause can be that you're already jailbroken. Reload the page, see above to reload the web app, or reboot your device and try again.
 
-**Device doesn't reflect updates to site** - I probably didn't update the AppCache manifest. Go to Settings > Safari > Clear History and Website Data and it'll get new data from the server.
+**Device doesn't reflect updates to site** - If you're using the web app, see earlier instructions to manually reload the web app, and/or reboot your device. If you're not, I probably didn't update the AppCache manifest. Go to Settings > Safari > Clear History and Website Data and it'll get new data from the server.
 
 ## Full list of changes:
 
