@@ -1,0 +1,16 @@
+CACHE MANIFEST
+# v1.0: Made by forcequitOS, 2025
+# I did not know this was a thing I could do. So now this should work entirely offline!
+CACHE:
+index.html
+int64.js
+stages.js
+offsets.js
+style.js
+utils.js
+pwn.js
+helper.js
+style.css
+manifest.json
+icons/icon-512x512.png
+icons/favicon.ico

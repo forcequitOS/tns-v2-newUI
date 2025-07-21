@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="cache.appcache">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,10 +7,17 @@
   <title>TNS v2 for iOS 12</title>
   <link rel="stylesheet" href="style.css"/>
   <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="static/favicon.ico"/>
   <!-- I legitimately did not know how to declare this as a web app to iOS 12. Shoutout to the original TNS source for that. -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="white">
   <link rel="apple-touch-icon" href="icons/icon-512x512.png">
+  <!-- Open Graph Metadata stuff -->
+  <meta property="og:title" content="TotallyNotSpyware v2 for iOS 12">
+  <meta property="og:description" content="Re-jailbreak A7-A10X devices running iOS 12, previously jailbroken with Chimera, all from Safari.">
+  <meta property="og:url" content="https://tns12.pages.dev/">
+  <meta name="twitter:card" content="TotallyNotSpyware v2 for iOS 12">
+  <meta name="description" content="Re-jailbreak A7-A10X devices running iOS 12, previously jailbroken with Chimera, all from Safari.">
   <script src="utils.js"></script>
   <script src="int64.js"></script>
   <script src="stages.js"></script>
@@ -47,7 +54,7 @@
 <body>
   <header>
     <h1>TotallyNotSpyware v2</h1>
-    <h3>iOS 12.0 – 12.5.7 • A7 - A10(X)</h3>
+    <h3>iOS 12.0 – 12.5.7 • A7 - A10X</h3>
     <h5>Your device must already be jailbroken using Chimera to use TNS v2.</h5>
   </header>
   <section class="credits-card" onclick="toggleCredits()">
