@@ -1,5 +1,5 @@
 # TotallyNotSpyware v2 Redesigned
-<img src="https://github.com/forcequitOS/tns-v2-newUI/blob/main/showcase.jpeg?raw=true" width="25%">
+<img src="https://github.com/forcequitOS/tns-v2-newUI/blob/main/showcase.png?raw=true" width="35%">
 
 ## This is an (unofficial) complete redesign of TNS v2 for iOS 12.
 **You can try it now at https://tns12.forcequit.cc!**
