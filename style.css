@@ -176,8 +176,15 @@ a {
 }
 
 header, sub {
+  display: block;
   width: 100%;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto 0 auto;
   text-align: left;
+}
+
+@media (min-width: 500px) {
+  header, sub {
+    transform: translateX(-16px);
+  }
 }

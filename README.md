@@ -12,7 +12,7 @@ This is an unofficial modification, so, do be careful, but I can say pretty conf
 
 **"A problem repeatedly occurred..."** - If you're in Safari and this message appears while you're trying to rejailbreak, reload the page. If you've added the page to your Home Screen, and solely wish to jailbreak from there, reboot your device. 
 
-**Device reboots after "Jailbreaking..." for a few seconds** - Leave your device powered on and unlocked for 30-60 seconds before retrying again, it'll work eventually.
+**Device reboots after "Jailbreaking..." for a few seconds** - Leave your device powered on and unlocked for ~30-60 seconds before retrying again, it'll work eventually.
 
 **Background gradient animates** - The re-jailbreak is not going to work. A likely cause can be that you're already jailbroken. Reload the page / reboot your device and try again.
 
