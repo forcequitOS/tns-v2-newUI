@@ -2,7 +2,7 @@
 <img src="https://github.com/forcequitOS/tns-v2-newUI/blob/main/showcase.jpeg?raw=true" width="25%">
 
 ## This is an (unofficial) complete redesign of TNS v2 for iOS 12.
-**You can try it now at https://tns12.pages.dev!**
+**You can try it now at https://tns12.forcequit.cc!**
 
 This modification most importantly adds support for **adding the page to your Home Screen as a web clip**, with an icon and even **offline support**!
 
