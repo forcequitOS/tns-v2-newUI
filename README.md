@@ -10,11 +10,13 @@ This is an unofficial modification, so, do be careful, but I can say pretty conf
 
 ## Troubleshooting / Info
 
-**"A problem repeatedly occurred..."** - If you're in Safari and this message appears while you're trying to rejailbreak, reload the page. If you've added the page to your Home Screen, and solely wish to jailbreak from there, reboot your device. 
+**Manually reloading the web app** - While in the web app, press and hold the Top/Side button until you reach the "slide to power off" screen, then press and hold the Home button until you reach the Home Screen.
+
+**"A problem repeatedly occurred..."** - If you're in Safari and this message appears while you're trying to rejailbreak, reload the page. If you've added the page to your Home Screen, and solely wish to jailbreak from there, see above point, or reboot your device.
 
 **Device reboots after "Jailbreaking..." for a few seconds** - Leave your device powered on and unlocked for ~30-60 seconds before retrying again, it'll work eventually.
 
-**Background gradient animates** - The re-jailbreak is not going to work. A likely cause can be that you're already jailbroken. Reload the page / reboot your device and try again.
+**Background gradient animates** - The re-jailbreak is not going to work. A likely cause can be that you're already jailbroken. Reload the page, see above to reload the web app, or reboot your device and try again.
 
 **Device doesn't reflect updates to site** - I probably didn't update the AppCache manifest. Go to Settings > Safari > Clear History and Website Data and it'll get new data from the server.
 
