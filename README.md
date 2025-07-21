@@ -4,6 +4,8 @@
 ## This is an (unofficial) complete redesign of TNS v2 for iOS 12.
 **You can try it now at https://tns12.forcequit.cc!**
 
+**Feeling something new?** Check out the new [Shortcut](https://raw.githubusercontent.com/forcequitOS/tns-v2-newUI/main/Jailbreak%20Me.shortcut) to re-jailbreak as well.
+
 This modification most importantly adds support for **adding the page to your Home Screen as a web clip**, with an icon and even **offline support**!
 
 This is an unofficial modification, so, do be careful, but I can say pretty confidently that this doesn't install malware or anything, and you can independently verify the source if you so desire.
