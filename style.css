@@ -36,17 +36,20 @@ body.js-gradient {
 }
 
 h1 {
-	font-size: 28px;
+    margin: 8px 0 0 0;
+	font-size: 29px;
 	font-weight: 700;
 }
 
 h3 {
+    margin: 8px 0 0 0;
 	font-size: 16px;
 	color: var(--text-secondary);
 	font-weight: 600;
 }
 
 h5 {
+    margin: 8px 0 16px 0;
 	font-size: 12px;
 	color: var(--text-tertiary);
 }
