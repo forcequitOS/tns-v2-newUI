@@ -8,9 +8,15 @@ This modification most importantly adds support for **adding the page to your Ho
 
 This is an unofficial modification, so, do be careful, but I can say pretty confidently that this doesn't install malware or anything, and you can independently verify the source if you so desire.
 
-## Random troubleshooting note
+## Troubleshooting / Info
 
-If the background gradient animates, the re-jailbreak's not going to work. Reload the page / reboot your device and try again.
+**"A problem repeatedly occurred..."** - If you're in Safari and this message appears while you're trying to rejailbreak, reload the page. If you've added the page to your Home Screen, and solely wish to jailbreak from there, reboot your device. 
+
+**Device reboots after "Jailbreaking..." for a few seconds** - Leave your device powered on and unlocked for 30-60 seconds before retrying again, it'll work eventually.
+
+**Background gradient animates** - The re-jailbreak is not going to work. A likely cause can be that you're already jailbroken. Reload the page / reboot your device and try again.
+
+**Device doesn't reflect updates to site** - I probably didn't update the AppCache manifest. Go to Settings > Safari > Clear History and Website Data and it'll get new data from the server.
 
 ## Full list of changes:
 

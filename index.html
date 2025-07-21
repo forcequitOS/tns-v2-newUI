@@ -7,7 +7,7 @@
   <title>TNS v2 for iOS 12</title>
   <link rel="stylesheet" href="style.css"/>
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="static/favicon.ico"/>
+  <link rel="icon" href="icons/favicon.ico"/>
   <!-- I legitimately did not know how to declare this as a web app to iOS 12. Shoutout to the original TNS source for that. -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="white">
@@ -49,6 +49,10 @@
       const list = document.getElementById("creditsList");
       list.classList.toggle("expanded");
     }
+    function toggleTroubleshooting() {
+      const list = document.getElementById("troubleshootingList");
+      list.classList.toggle("expanded");
+    }
   </script>
 </head>
 <body>
@@ -69,6 +73,15 @@
       <li>qwertyoruiop <span class="role">(Mach-O loader with +jitMemCpy)</span></li>
       <li>forcequitOS <span class="role">(site design)</span></li>
       <li class="note">If any contributors are missing, please let me know.</li>
+    </ul>
+  </section>
+  <section class="credits-card" onclick="toggleTroubleshooting()">
+    <h2>Troubleshooting</h2>
+    <ul class="credits-list" id="troubleshootingList">
+      <li><strong>"A problem repeatedly occurred..."</strong> • If you're in Safari and this message appears while you're trying to rejailbreak, reload the page. If you've added the page to your Home Screen, and solely wish to jailbreak from there, reboot your device.</li>
+      <li><strong>Device reboots after "Jailbreaking..." for a few seconds</strong> • Leave your device powered on and unlocked for 30-60 seconds before retrying again, it'll work eventually.</li>
+      <li><strong>Background gradient animates</strong> • The re-jailbreak is not going to work. A likely cause can be that you're already jailbroken. Reload the page / reboot your device and try again.</li>
+      <li><strong>Device doesn't reflect updates to site</strong> • I probably didn't update the AppCache manifest. Go to Settings > Safari > Clear History and Website Data and it'll get new data from the server.</li>
     </ul>
   </section>
   <a href="https://github.com/forcequitOS/tns-v2-newUI" target="_blank" rel="noopener noreferrer">Source Code</a>
