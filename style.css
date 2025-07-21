@@ -29,12 +29,10 @@ body {
     var(--main-background-1)
   );
   background-size: 400% 400%;
-  -webkit-backdrop-filter: blur(100px);
-  backdrop-filter: blur(100px);
 }
 
 body.js-gradient {
-	animation: gradientAnimation 1.5s linear infinite alternate;
+	animation: gradientAnimation 1.5s conic infinite alternate;
 }
 
 h1 {
