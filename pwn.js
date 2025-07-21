@@ -758,7 +758,7 @@ function pwn() {
 
 
     //6. We've done here, get code execution
-    alert("Building JOP chain, executing stages payload!");
+    // I removed the alert that was initially here because I found it annoying. Was planning on replacing it with a progress indicator on the site, but the site basically stops working while its jailbreaking. The page will crash if it crashes ¯\_(ツ)_/¯
     log(`[Stage 6] Prepare code execution...`);
     
     // needed to bypass seperated RW, RX JIT mitigation

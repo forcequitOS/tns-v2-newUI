@@ -1,48 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/javascript" src="utils.js"></script>
-    <script type="text/javascript" src="int64.js"></script>
-    <script type="text/javascript" src="stages.js"></script>
-    <script type="text/javascript" src="offsets.js"></script>
-    <script type="text/javascript" src="pwn.js"></script>
-    <script>
-        function log(msg) {};
-        function rejb() {
-            document.getElementById("jbButton").textContent = "re-jailbreaking";
-
-            setTimeout(() => {
-              pwn();
-            }, 100);
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#3249e8">
+  <title>TNS v2 for iOS 12</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="manifest" href="manifest.json">
+  <!-- I legitimately did not know how to declare this as a web app to iOS 12. Shoutout to the original TNS source for that. -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png">
+  <script src="utils.js"></script>
+  <script src="int64.js"></script>
+  <script src="stages.js"></script>
+  <script src="offsets.js"></script>
+  <script src="pwn.js"></script>
+  <script src="style.js"></script>
+  <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    window.animator = new GradientAnimator();
+    window.animator.setTargetSpeed(0);
+    const btn = document.getElementById("jbButton");
+    const supported = /iPhone|iPad|iPod/.test(navigator.userAgent) && /OS 12_/.test(navigator.userAgent);
+    if (!supported) {
+        btn.textContent = "Unsupported";
+        btn.disabled = true;
+    }
+  });
+    function log(msg) {}
+    function rejb() {
+    window.animator.setTargetSpeed(1);
+      const btn = document.getElementById("jbButton");
+      btn.textContent = "Jailbreaking...";
+      btn.disabled = true;
+      setTimeout(() => {
+         pwn();
+      }, 100);
+    }
+    function toggleCredits() {
+      const list = document.getElementById("creditsList");
+      list.classList.toggle("expanded");
+    }
+  </script>
 </head>
 <body>
-
-    <h3>totally-not-spyware v2 (commit-99baa0b)</h3>
-    <p>rejailbreak utility</p>
-    <button id="jbButton" onclick="rejb();">re-jailbreak</button>
-
-    <p>work on iOS 12.0-12.5.x, A7-A10 devices with chimera jailbroken devices.</p>
-    <p>may take upto 20~30 seconds to build jop chain and rejailbreak.</p>
-
-    <p>
-        <a href="https://github.com/wh1te4ever/totally-not-spyware-v2" target="_blank">Source code</a>
-    </p>
-
-    Credits<br>
-    - wh1te4ever (main developer)<br>
-    - alfiecg24 (stable kernel exploit)<br>
-    - felix-pb (kernel exploit)<br>
-    - Samuel Groß (CVE-2020-9802, Webkit Exploit)<br>
-    - CoolStar and all chimera jailbreak developers<br>
-    - JakeBlair420 and all TotallyNotSpyware developers (jop chaining, code-execution idea)<br>
-    - qwertyoruiop (Mach-O loader with +jitMemCpy)<br>
-    - If I ever missed, please let me know.<br>
-    <br>
-    
+  <header>
+    <h1>TotallyNotSpyware v2</h1>
+    <h3>iOS 12.0 – 12.5.7 • A7 - A10(X)</h3>
+    <h5>Your device must already be jailbroken using Chimera to use TNS v2.</h5>
+  </header>
+  <section class="credits-card" onclick="toggleCredits()">
+    <h2>Credits</h2>
+    <ul class="credits-list" id="creditsList">
+      <li>wh1te4ever <span class="role">(main developer)</span></li>
+      <li>alfiecg24 <span class="role">(stable kernel exploit)</span></li>
+      <li>felix-pb <span class="role">(kernel exploit)</span></li>
+      <li>Samuel Groß <span class="role">(CVE-2020-9802, WebKit exploit)</span></li>
+      <li>CoolStar and all Chimera jailbreak developers</li>
+      <li>JakeBlair420 and all TotallyNotSpyware developers</li>
+      <li>qwertyoruiop <span class="role">(Mach-O loader with +jitMemCpy)</span></li>
+      <li>forcequitOS <span class="role">(site design)</span></li>
+      <li class="note">If any contributors are missing, please let me know.</li>
+    </ul>
+  </section>
+  <a href="https://github.com/forcequitOS/tns-v2-newUI">Source Code</a>
+  <a href="https://github.com/wh1te4ever/totally-not-spyware-v2-release">Original Source Code</a>
+  <main class="action">
+    <button id="jbButton" onclick="rejb()">Re-Jailbreak!</button>
+  </main>
+  <sub>This is an unofficial modification, use at your own risk.</sub>
 </body>
 </html>
