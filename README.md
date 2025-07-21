@@ -8,6 +8,10 @@ This modification most importantly adds support for **adding the page to your Ho
 
 This is an unofficial modification, so, do be careful, but I can say pretty confidently that this doesn't install malware or anything, and you can independently verify the source if you so desire.
 
+## Random troubleshooting note
+
+If the background gradient animates, the re-jailbreak's not going to work. Reload the page / reboot your device and try again.
+
 **Full list of changes:**
 
 - Beloved fancy background gradient
