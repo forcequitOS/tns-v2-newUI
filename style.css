@@ -130,6 +130,7 @@ h5 {
 }
 
 #jbButton {
+  -webkit-tap-highlight-color: transparent;
   font-family: -apple-system, 'SF Pro', Roboto, 'Fira Sans', Oxygen, Ubuntu, 'Segoe UI', 'Helvetica Neue', 'Noto Sans', Arial, sans-serif, ui-sans-serif;
   font-weight: 700;
   background: rgba(255, 255, 255, 0.05);
@@ -153,6 +154,7 @@ h5 {
 }
 
 a {
+  -webkit-tap-highlight-color: transparent;
   display: block;
   width: 85%;
   background: rgba(255, 255, 255, 0.05);
