@@ -2,7 +2,7 @@
 <html lang="en" manifest="cache.appcache">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#3249e8">
   <title>TNS v2 for iOS 12</title>
   <link rel="stylesheet" href="style.css"/>
@@ -10,12 +10,12 @@
   <link rel="icon" href="icons/favicon.ico"/>
   <!-- I legitimately did not know how to declare this as a web app to iOS 12. Shoutout to the original TNS source for that. -->
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="icons/icon-512x512.png">
   <!-- Open Graph Metadata stuff -->
   <meta property="og:title" content="TotallyNotSpyware v2 for iOS 12">
   <meta property="og:description" content="Re-jailbreak A7-A10X devices running iOS 12, previously jailbroken with Chimera, all from Safari.">
-  <meta property="og:url" content="https://tns12.pages.dev/">
+  <meta property="og:url" content="https://tns12.forcequit.cc/">
   <meta name="twitter:card" content="TotallyNotSpyware v2 for iOS 12">
   <meta name="description" content="Re-jailbreak A7-A10X devices running iOS 12, previously jailbroken with Chimera, all from Safari.">
   <!-- Inter font stuff -->
@@ -38,6 +38,7 @@
         btn.textContent = "Unsupported";
         btn.disabled = true;
     }
+    checkForFallbackGradient();
   });
     function log(msg) {}
     function rejb() {
@@ -46,16 +47,58 @@
       btn.textContent = "Jailbreaking...";
       btn.disabled = true;
       setTimeout(() => {
+        btn.textContent = "Failed, retry?";
+        btn.disabled = false;
+      }, 6500);
+      setTimeout(() => {
          pwn();
       }, 100);
     }
     function toggleCredits() {
       const list = document.getElementById("creditsList");
       list.classList.toggle("expanded");
+      updateHeaderCompression();
     }
     function toggleTroubleshooting() {
       const list = document.getElementById("troubleshootingList");
       list.classList.toggle("expanded");
+      updateHeaderCompression();
+    }
+    function updateHeaderCompression() {
+      const header = document.querySelector("header");
+      const creditsExpanded = document.getElementById("creditsList").classList.contains("expanded");
+      const troubleshootingExpanded = document.getElementById("troubleshootingList").classList.contains("expanded");
+      
+      if (creditsExpanded || troubleshootingExpanded) {
+          header.classList.add("compressed");
+      } else {
+          header.classList.remove("compressed");
+      }
+    }
+    function checkForFallbackGradient() {
+      const ua = navigator.userAgent;
+
+      const isOldSafari = (() => {
+        const match = ua.match(/Version\/(\d+)\.(\d+)/); // Safari
+        if (match) {
+          const [major, minor] = match.slice(1).map(Number);
+          return major < 12 || (major === 12 && minor < 1);
+        }
+        return false;
+      })();
+
+      const isOldiOS = (() => {
+      const match = ua.match(/OS (\d+)_?(\d+)?/); // iOS
+      if (match) {
+       const [major, minor] = [parseInt(match[1], 10), parseInt(match[2] || "0", 10)];
+       return major < 12 || (major === 12 && minor < 2);
+     }
+     return false;
+    })();
+
+    if (isOldSafari || isOldiOS) {
+       document.documentElement.classList.add("fallback-gradient");
+     }
     }
   </script>
 </head>
@@ -84,10 +127,11 @@
     <h2>Troubleshooting</h2>
     <ul class="credits-list" id="troubleshootingList">
       <li><strong>Manually reloading the web app</strong> • While in the web app, press and hold the Top/Side button until you reach the "slide to power off" screen, then press and hold the Home button until you reach the Home Screen.</li>
-      <li><strong>"A problem repeatedly occurred..."</strong> • If you're in Safari and this message appears while you're trying to rejailbreak, reload the page. If you've added the page to your Home Screen, and solely wish to jailbreak from there, see above point, or reboot your device.</li>
+      <li><strong>"A problem repeatedly occurred..."</strong> • If you're in Safari and this message appears while you're trying to rejailbreak, reload the page. If you've added the page to your Home Screen, and solely wish to jailbreak from there, see above to reload the web app, or restart your device.</li>
       <li><strong>Device reboots after "Jailbreaking..." for a few seconds</strong> • Leave your device powered on and unlocked for ~30-60 seconds before retrying again, it'll work eventually.</li>
-      <li><strong>Background gradient animates</strong> • The re-jailbreak is not going to work. A likely cause can be that you're already jailbroken. Reload the page, see above to reload the web app, or reboot your device and try again.</li>
+      <li><strong>Failed, retry?</strong> • The re-jailbreak is failing for some reason. One possible cause for this can be that your device is already jailbroken. If retrying doesn't help, refresh the website, reload the web app, or restart your device.</li>
       <li><strong>Device doesn't reflect updates to site</strong> • If you're using the web app, see earlier instructions to manually reload the web app, and/or reboot your device. If you're not, I probably didn't update the AppCache manifest. Go to Settings > Safari > Clear History and Website Data and it'll get new data from the server.</li>
+      <li class="note">If you have a problem not mentioned here, please file a GitHub issue.</li>
     </ul>
   </section>
   <a href="https://github.com/forcequitOS/tns-v2-newUI" target="_blank" rel="noopener noreferrer">Source Code</a>

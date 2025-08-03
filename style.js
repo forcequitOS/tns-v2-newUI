@@ -5,17 +5,26 @@ class GradientAnimator {
     this.animationSpeed = 1;
     this.targetSpeed = 0;
     this.elapsed = 0;
-
+    this.rotation = 0;
     localStorage.setItem('gradientStartTime', this.startTime);
-
     this.animate = this.animate.bind(this);
     this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
     this.checkFocus = this.checkFocus.bind(this);
+    
+    this.initializeGradientElement();
+  }
+
+  initializeGradientElement() {
+    const existing = document.querySelector('.gradient-overlay');
+    if (existing) existing.remove();
+
+    document.documentElement.style.setProperty('--gradient-rotation', '0deg');
+    document.documentElement.style.setProperty('--gradient-translate-x', '-70%');
+    document.documentElement.style.setProperty('--gradient-translate-y', '-70%');
   }
 
   setTargetSpeed(speed) {
     this.targetSpeed = speed;
-
     if (speed > 0 && !this.isAnimating) {
       this.start();
     } else if (speed === 0 && this.isAnimating) {
@@ -40,9 +49,9 @@ class GradientAnimator {
 
   animate() {
     if (!this.isAnimating) return;
-
+    
     if (Math.abs(this.targetSpeed) < 0.001) {
-      requestAnimationFrame(this.animate); // Keep checking in case targetSpeed changes again
+      requestAnimationFrame(this.animate);
       return;
     }
 
@@ -50,20 +59,30 @@ class GradientAnimator {
     this.animationSpeed += speedDiff * 0.05;
 
     const now = Date.now();
-    this.elapsed += (now - this.startTime) * this.animationSpeed;
+    const deltaTime = now - this.startTime;
     this.startTime = now;
 
-    const duration = 15000;
+    this.elapsed += deltaTime * this.animationSpeed;
+
+    const duration = 7500;
     const progress = (this.elapsed % duration) / duration;
-
     const angle = progress * Math.PI * 2;
-    const scale = 100;
-    const offset = 50;
 
-    const x = offset + Math.cos(angle) * (scale / 2);
-    const y = offset + Math.sin(angle) * (scale / 2);
+    const radius = 2;
+    const centerOffset = 50;
+    
+    const x = centerOffset + Math.cos(angle) * radius;
+    const y = centerOffset + Math.sin(angle) * radius;
 
-    document.body.style.backgroundPosition = `${x}% ${y}%`;
+    const translateX = -70 + (x - 50) * 0.05;
+    const translateY = -70 + (y - 50) * 0.05;
+    
+    document.documentElement.style.setProperty('--gradient-translate-x', `${translateX}%`);
+    document.documentElement.style.setProperty('--gradient-translate-y', `${translateY}%`);
+
+    this.rotation += (deltaTime * this.animationSpeed * 360) / 30000;
+    this.rotation = this.rotation % 360;
+    document.documentElement.style.setProperty('--gradient-rotation', `${this.rotation}deg`);
 
     requestAnimationFrame(this.animate);
   }

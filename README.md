@@ -1,5 +1,7 @@
 # TotallyNotSpyware v2 Redesigned
-<img src="https://github.com/forcequitOS/tns-v2-newUI/blob/main/showcase.png?raw=true" width="35%">
+<p align="center">
+<img src="https://github.com/forcequitOS/tns-v2-newUI/blob/main/showcase.png?raw=true" width="50%">
+</p>
 
 ## This is an (unofficial) complete redesign of TNS v2 for iOS 12.
 **You can try it now at https://tns12.forcequit.cc!**
@@ -14,13 +16,15 @@ This is an unofficial modification, so, do be careful, but I can say pretty conf
 
 **Manually reloading the web app** - While in the web app, press and hold the Top/Side button until you reach the "slide to power off" screen, then press and hold the Home button until you reach the Home Screen.
 
-**"A problem repeatedly occurred..."** - If you're in Safari and this message appears while you're trying to rejailbreak, reload the page. If you've added the page to your Home Screen, and solely wish to jailbreak from there, see above point, or reboot your device.
+**"A problem repeatedly occurred..."** - If you're in Safari and this message appears while you're trying to rejailbreak, reload the page. If you've added the page to your Home Screen, and solely wish to jailbreak from there, see above to reload the web app, or restart your device.
 
 **Device reboots after "Jailbreaking..." for a few seconds** - Leave your device powered on and unlocked for ~30-60 seconds before retrying again, it'll work eventually.
 
-**Background gradient animates** - The re-jailbreak is not going to work. A likely cause can be that you're already jailbroken. Reload the page, see above to reload the web app, or reboot your device and try again.
+**Failed, retry?** - The re-jailbreak is failing for some reason. One possible cause for this can be that your device is already jailbroken. If retrying doesn't help, refresh the website, reload the web app, or restart your device.
 
 **Device doesn't reflect updates to site** - If you're using the web app, see earlier instructions to manually reload the web app, and/or reboot your device. If you're not, I probably didn't update the AppCache manifest. Go to Settings > Safari > Clear History and Website Data and it'll get new data from the server.
+
+**If you're having an issue and it's not mentioned here, and you're sure that you've done everything right, file a GitHub Issue and I'll try to get back to you.**
 
 ## Full list of changes:
 
@@ -35,6 +39,13 @@ This is an unofficial modification, so, do be careful, but I can say pretty conf
 
 ## But as always, there is one more thing.
 
-If someone can figure out how I could stop the page from scrolling and bouncing around all over the place, I'd be eternally grateful. But if not I don't really care either. Other than that, I think this is largely "pretty great", not much more to improve.
+I have a couple of things in mind for how I can improve this in the future, it basically boils down to the following:
+
+- An iPad-optimized layout, for, you guessed it, iPads. I'm almost definitely going to work on this myself at some point whenever I get my hands on an iOS 12 iPad.
+- A slightly different post-exploitation payload to allow for some cool options on the actual frontend. I'd like to have a permanent, cached option to either immediately kill Safari post-jailbreak, userspace reboot, or respring, alongside an option to disable tweaks temporarily. This is possible as everything for TNS v2 is open-source, I just need to stop slacking. This might be a little challenging to implement, but far from impossible. 
+- Making the site not bounce around and be scrollable when it doesn't need to be (Fixing this, specifically targeting iOS 12, seems legitimately impossible.)
+- Improving the background gradient two, electric boogaloo (I probably could have done this before throwing the 1.2.0 release at the world, but oh well), I basically just want better colors. The old background gradient I was utilizing before had some bugs on iOS 12 with animation (which you barely see anyways). 
+
+If anyone would like to help contribute to these, I'd appreciate it, but if not, I'll probably get around to doing them myself at some point when time allows and I get bored on a Saturday night again.
 
 <sub>I've probably used the actual absolute messiest CSS I've ever written in my life to make this, oh well.</sub>

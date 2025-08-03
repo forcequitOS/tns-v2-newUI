@@ -1,13 +1,16 @@
 :root {
-  --main-background-1: #105cff;
-  --main-background-2: #00eb2e;
-  --main-background-3: #f86e01;
-  --main-background-4: #fc010c;
+  --main-background-1: #f86e01;
+  --main-background-2: #fc010c;
+  --main-background-3: #105cff;
+  --main-background-4: #00eb2e;
   --main-background-5: #fb38b0;
   --main-background-6: #5f1fbf;
   --text-primary: rgba(255, 255, 255, 1.0);
   --text-secondary: rgba(255, 255, 255, 0.8);
   --text-tertiary: rgba(255, 255, 255, 0.6);
+  --gradient-rotation: 0deg;
+  --gradient-translate-x: -70%;
+  --gradient-translate-y: -70%;
 }
 
 body {
@@ -20,7 +23,49 @@ body {
   font-size: 16px;
   font-weight: 600;
   justify-content: flex-start;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  padding-top: env(safe-area-inset-top);
+  box-sizing: border-box;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 800%;
+  height: 800%;
+  z-index: -1;
+  transform: translate(var(--gradient-translate-x), var(--gradient-translate-y));
   background: conic-gradient(
+    from var(--gradient-rotation) at center,
+    var(--main-background-1),
+    var(--main-background-2),
+    var(--main-background-3),
+    var(--main-background-4),
+    var(--main-background-5),
+    var(--main-background-6),
+    var(--main-background-1)
+  );
+}
+
+body.js-gradient::before {
+  background: conic-gradient(
+    from var(--gradient-rotation) at center,
+    var(--main-background-1),
+    var(--main-background-2),
+    var(--main-background-3),
+    var(--main-background-4),
+    var(--main-background-5),
+    var(--main-background-6),
+    var(--main-background-1)
+  );
+}
+
+html.fallback-gradient body::before {
+  background: linear-gradient(
+    calc(45deg + var(--gradient-rotation)),
     var(--main-background-1),
     var(--main-background-2),
     var(--main-background-3),
@@ -32,14 +77,38 @@ body {
   background-size: 400% 400%;
 }
 
-body.js-gradient {
-	animation: gradientAnimation 1.5s conic infinite alternate;
-}
-
 h1 {
-    margin: 8px 0 0 0;
+    margin: 30px 0 0 0;
 	font-size: 29px;
 	font-weight: 700;
+    transition:
+      margin 0.3s ease,
+      font-size 0.3s ease,
+      font-weight 0.3s ease;
+}
+
+header.compressed h1 {
+    margin: 8px 0 8px 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+header.compressed h3,
+header.compressed h5 {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+}
+
+h3, h5 {
+  transition: opacity 0.3s ease, max-height 0.3s ease, margin 0.3s ease;
+}
+
+@media (min-width: 321px) {
+    h1 {
+        font-size: 34px;
+        margin: 45px 0 0 0;
+    }
 }
 
 h3 {
@@ -69,15 +138,6 @@ sub {
 
 html {
   height: 100%;
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
 }
 
 .credits-card {
@@ -132,7 +192,7 @@ html {
  font-style: italic;
  font-size: 13px;
  text-align: center;
- margin-top: 8px;
+ margin-bottom: 8px;
 }
 
 .credits-list .role {
@@ -144,7 +204,7 @@ html {
 .credits-list {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.20s cubic-bezier(1, 1, 1, 1);
+  transition: max-height 0.3s ease;
 }
 
 .credits-list.expanded {
@@ -152,7 +212,6 @@ html {
 }
 
 #jbButton {
-  -webkit-tap-highlight-color: transparent;
   font-family: -apple-system, 'SF Pro', BlinkMacSystemFont, 'Inter', system-ui, 'Segoe UI', 'Helvetica Neue', 'Noto Sans', 'Ubuntu', Arial, sans-serif, ui-sans-serif;
   font-weight: 700;
   background: rgba(255, 255, 255, 0.05);
@@ -168,6 +227,12 @@ html {
   text-align: center;
   display: block;
   cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.3s ease;
+}
+
+#jbButton:active:not(:disabled) {
+  transform: scale(0.98);
+  opacity: 0.8;
 }
 
 #jbButton:disabled {
@@ -176,7 +241,6 @@ html {
 }
 
 a {
-  -webkit-tap-highlight-color: transparent;
   display: block;
   width: 85%;
   background: rgba(255, 255, 255, 0.05);
@@ -207,4 +271,18 @@ header, sub {
   header, sub {
     transform: translateX(-16px);
   }
+}
+
+.credits-card, a, #jbButton {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.credits-card:active, a:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+.credits-card, a {
+  transition: transform 0.1s ease, opacity 0.25s ease;
 }
